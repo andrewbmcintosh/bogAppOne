@@ -4,12 +4,14 @@ import axios from 'axios'
 
 class CreatureForm extends Component {
     state = {
-        name: "",
-        description: ""
+        creature: {
+            name: "",
+            description: ""
+        }
     }
 
     handleChange = (e) => {
-        const newCreature = { ...this.state }
+        const newCreature = { ...this.state.creature }
         newCreature[e.target.name] = e.target.value
         console.log(newCreature)
         this.setState({ creature: newCreature })
@@ -17,9 +19,11 @@ class CreatureForm extends Component {
 
     createCreature = () => {
         axios.post('/api/creatures', {
-            creature: this.state
+            creature: this.state.creature
         }).then((res) => {
-            this.setState({ name: "", description: "" })
+            // for some reason its setting the state to
+            this.props.getAllCreatures()
+            document.getElementsByTagName('input').value = ""
         })
     }
 

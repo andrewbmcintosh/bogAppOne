@@ -25,10 +25,11 @@ const creatureController = {
             })
     },
     create: (req, res) => {
-        Creature.create(req.body)
-            .then((creature) => {
-                res.send(creature)
-            })
+        const newCreature = new Creature(req.body.creature)
+        newCreature.save().then((creature) => {
+            res.json(creature)
+        }).catch(console.log)
+          
     }
 }
 

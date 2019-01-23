@@ -40,8 +40,8 @@ export default class Creatures extends Component {
                         </div>
                     </div>
                 ))}
-                <button onClick={this.toggle}>Add a new User</button>
-                {this.state.toggleForm ? <CreatureForm /> : null}
+                <button onClick={this.toggle}>Add a new Creature</button>
+                {this.state.toggleForm ? <CreatureForm getAllCreatures={this.getAllCreatures}/> : null}
             </div>
         )
     }
