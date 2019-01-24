@@ -10,7 +10,7 @@ class App extends Component {
         <div>
           <Switch>
             <Route exact path="/" component={Creatures} />
-            <Route path="/:id" component={SingleCreature} />
+            <Route exact path="/creatures/:creatureId" component={SingleCreature} />
           </Switch>
         </div>
       </Router>
